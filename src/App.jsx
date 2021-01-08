@@ -3,11 +3,8 @@ import "./styles.css";
 
 export const App = () => {
   const [todoText, setTodoText] = useState("");
-  const [incompletedTodos, setIncompletedTodos] = useState([
-    "あああああ",
-    "いいいいい"
-  ]);
-  const [completedTodos, setCompletedTodos] = useState(["ううううう"]);
+  const [incompletedTodos, setIncompletedTodos] = useState([]);
+  const [completedTodos, setCompletedTodos] = useState([]);
 
   const onChangeTodoText = (event) => setTodoText(event.target.value);
 
@@ -28,13 +25,21 @@ export const App = () => {
   };
 
   const onClickComplete = (index) => {
-    const newImpompleteTodos = [...incompletedTodos];
-    newImpompleteTodos.splice(index, 1);
+    const newIncompleteTodos = [...incompletedTodos];
+    newIncompleteTodos.splice(index, 1);
     // 完了TODOに追加
     const newCompleteTodos = [...completedTodos, incompletedTodos[index]];
     // 関数を更新
-    setIncompletedTodos(newImpompleteTodos);
+    setIncompletedTodos(newIncompleteTodos);
     setCompletedTodos(newCompleteTodos);
+  };
+
+  const onClickBack = (index) => {
+    const newComplateTodos = [...completedTodos];
+    newComplateTodos.splice(index, 1);
+    const newIncompleteTodos = [...incompletedTodos, completedTodos[index]];
+    setCompletedTodos(newComplateTodos);
+    setIncompletedTodos(newIncompleteTodos);
   };
 
   return (
@@ -65,11 +70,11 @@ export const App = () => {
       <div className="complete-area">
         <p className="title">完了したTODO</p>
         <ul>
-          {completedTodos.map((todo) => {
+          {completedTodos.map((todo, index) => {
             return (
               <li key={todo} className="list-row">
                 <p>{todo}</p>
-                <button>戻す</button>
+                <button onClick={() => onClickBack(index)}>戻す</button>
               </li>
             );
           })}
