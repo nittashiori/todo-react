@@ -34,26 +34,6 @@ li {
   color: #fff;
 }
 
-.incomplete-area {
-  background: #2a2a2a;
-  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.3) inset;
-  width: 400px;
-  min-height: 200px;
-  padding: 16px;
-  margin: 8px;
-  border-radius: 4px;
-}
-
-.complete-area {
-  background: #2a2a2a;
-  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.3) inset;
-  width: 400px;
-  min-height: 200px;
-  padding: 16px;
-  margin: 8px;
-  border-radius: 4px;
-}
-
 .title {
   text-align: center;
   margin: 0;
