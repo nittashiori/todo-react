@@ -75,3 +75,8 @@ li {
 .list-row button {
   margin: 0 4px;
 }
+
+.alert {
+  margin: 8px;
+  color: orangered;
+}
